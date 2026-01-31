@@ -1,0 +1,70 @@
+{
+  "session_id": "session-1769855525687",
+  "summary": null,
+  "message_range_summarized": null,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hi, I'm looking for a good restaurant.",
+      "timestamp": "2026-01-31T17:32:14.125109"
+    },
+    {
+      "role": "assistant",
+      "content": "Hi! Could you please specify the location, cuisine type, price range, or any preferences you have? This will help me recommend a good restaurant for you.",
+      "timestamp": "2026-01-31T17:32:23.386820"
+    },
+    {
+      "role": "user",
+      "content": "Something nice for tonight.",
+      "timestamp": "2026-01-31T17:32:32.650042"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure! Could you please tell me your preferred location (city or neighborhood), cuisine type (e.g., Italian, Japanese, American), and price range (e.g., budget, mid-range, fine dining)? This will help me recommend a nice restaurant for tonight.",
+      "timestamp": "2026-01-31T17:32:37.563696"
+    },
+    {
+      "role": "user",
+      "content": "It's for my girlfriend birthday.",
+      "timestamp": "2026-01-31T17:32:56.551270"
+    },
+    {
+      "role": "assistant",
+      "content": "Happy birthday to your girlfriend! Could you please provide the location (city or neighborhood), preferred cuisine, and budget or price range? This will help me suggest the best restaurants for a special celebration tonight.",
+      "timestamp": "2026-01-31T17:33:00.888573"
+    },
+    {
+      "role": "user",
+      "content": "She likes the one we went to last time.",
+      "timestamp": "2026-01-31T17:33:14.821032"
+    },
+    {
+      "role": "assistant",
+      "content": "I don’t have access to your past dining history. Could you please remind me the name or details of the restaurant you went to last time? That way, I can help you find a similar place or assist with a reservation.",
+      "timestamp": "2026-01-31T17:33:19.171531"
+    },
+    {
+      "role": "user",
+      "content": "It's a restaurant in Ho Chi Minh city specialize in seafood",
+      "timestamp": "2026-01-31T17:34:19.704543"
+    },
+    {
+      "role": "assistant",
+      "content": "Here are some popular seafood restaurants in Ho Chi Minh City that are great for a birthday celebration:\n\n1. **Quán Ụt Ụt** – Known for fresh seafood and a lively atmosphere, perfect for a special occasion.\n2. **Ốc Đào** – Famous for its variety of shellfish and cozy vibe.\n3. **Làng Ẩm Thực Hải Sản** – Offers a wide selection of seafood dishes in a comfortable setting.\n4. **Nhà hàng Hương Rừng** – A well-regarded spot with authentic seafood and good service.\n5. **Cục Gạch Quán** – Although not exclusively seafood, it has excellent seafood options and a charming ambiance.\n\nIf you can share the name or specific dishes from the restaurant you visited last time, I can help narrow down the best match or assist with reservations. Would you like me to help book a table at any of these?",
+      "timestamp": "2026-01-31T17:34:28.735847"
+    },
+    {
+      "role": "user",
+      "content": "Yes where can i book the slot in \"Quán Ụt Ụt\"",
+      "timestamp": "2026-01-31T17:35:06.901891"
+    },
+    {
+      "role": "assistant",
+      "content": "You can book a table at Quán Ụt Ụt in Ho Chi Minh City by contacting them directly via phone or through popular restaurant reservation platforms like Foody.vn or TableNow.vn. \n\nHere is the contact info for Quán Ụt Ụt:\n- Phone: +84 28 3844 1234 (example number, please verify)\n- Address: Check on Google Maps for the exact location.\n\nAlternatively, you can visit their official Facebook page if available, as many local restaurants take reservations via Messenger.\n\nWould you like me to help find the current phone number or assist with an online booking link?",
+      "timestamp": "2026-01-31T17:35:12.269956"
+    }
+  ],
+  "total_tokens": 570,
+  "created_at": "2026-01-31T17:32:14.124107",
+  "updated_at": "2026-01-31T17:35:12.270983"
+}
