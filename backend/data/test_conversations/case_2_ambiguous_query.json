@@ -1,0 +1,24 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello, I need help with my coffee machine."
+    },
+    {
+      "role": "user",
+      "content": "It's behaving weirdly."
+    },
+    {
+      "role": "user",
+      "content": "The light is blinking."
+    },
+    {
+      "role": "user",
+      "content": "Which one?"
+    },
+    {
+      "role": "user",
+      "content": "Fix it."
+    }
+  ]
+}

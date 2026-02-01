@@ -1,0 +1,20 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "I am looking for a gift for my sister. She likes hiking and photography."
+    },
+    {
+      "role": "user",
+      "content": "She already has a good camera."
+    },
+    {
+      "role": "user",
+      "content": "What about something for her other hobby?"
+    },
+    {
+      "role": "user",
+      "content": "Maybe something under $50?"
+    }
+  ]
+}

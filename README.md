@@ -1,24 +1,17 @@
 # Chat Assistant with Session Memory
 
-A simple chat assistant demonstrating:
+A chat assistant demonstrating:
 1. **Session Memory via Summarization** - Automatic summarization when conversation context exceeds a configurable token threshold
 2. **Query Understanding Pipeline** - Rewriting ambiguous queries, context augmentation, and clarifying questions
 
 ## Architecture
 
-```
-User Query → Load Session Memory → Check Token Threshold → Query Understanding → Generate Response
-                    ↓                      ↓                      ↓
-              Load/Create            Summarize if             - Detect ambiguity
-              from disk              exceeded                 - Rewrite query
-                                                             - Augment context
-                                                             - Generate clarifying Qs
-```
+![Architecture Diagram](docs/shorttem.png)
 
 ## Features
 
 ### A. Session Memory via Summarization
-- **Trigger**: When conversation context exceeds configurable threshold (default: 10k tokens)
+- **Trigger**: When conversation context exceeds configurable threshold (default: 1k tokens)
 - **Token Counting**: Uses `tiktoken` with `o200k_base` model
 - **Output Schema**:
 ```json
@@ -30,7 +23,7 @@ User Query → Load Session Memory → Check Token Threshold → Query Understan
     "open_questions": [],
     "todos": []
   },
-  "message_range_summarized": {"from": 0, "to": 42}
+  "message_range_summarized": {"from": 0, "to": 10}
 }
 ```
 
@@ -45,7 +38,7 @@ User Query → Load Session Memory → Check Token Threshold → Query Understan
   "original_query": "...",
   "is_ambiguous": true,
   "rewritten_query": "...",
-  "needed_context_from_memory": ["user_profile.preferences"],
+  "needed_context_from_memory": ["user_profile.preferences", ...],
   "clarifying_questions": ["...", "..."],
   "final_augmented_context": "..."
 }
@@ -59,7 +52,7 @@ backend/
 ├── demo.py                     # Demo script for both flows
 ├── data/
 │   ├── memory/                 # Session memory storage (JSON files)
-│   └── test_conversations/     # Test data (3 conversation logs)
+│   └── test_conversations/     # Test data 
 └── src/
     ├── config.py               # Configuration (token threshold, etc.)
     ├── schemas/
@@ -75,17 +68,35 @@ frontend/
 └── src/app/page.tsx            # React chat interface
 ```
 
+## Requirements
+
+- **Python**: 3.10 or higher
+- **Node.js**: 22.19 or higher
+
 ## Setup
+
+### Environment Configuration
+```bash
+# Copy the environment template file
+cp .env.example .env
+
+# Edit .env with your actual values
+- OPENAI_API_KEY: Your OpenAI API key
+- OPENAI_MODEL: OpenAI model to use (e.g., gpt-4.1-mini)
+- NEXT_PUBLIC_BACKEND_URL: Backend server URL (default: http://localhost:8000)
+- NEXT_PUBLIC_BACKEND_API_KEY: Backend API key for frontend
+```
 
 ### Backend
 ```bash
 cd backend
-python -m venv venv
-venv\Scripts\activate  # Windows
-pip install -r requirements.txt
 
-# Create .env file with your OpenAI API key
-echo OPENAI_API_KEY=your_key_here > .env
+# Create and activate conda environment
+conda create -n shortmem python=3.10
+conda activate shortmem
+
+# Install dependencies
+pip install -r requirements.txt
 
 # Run server
 uvicorn app:app --reload --port 8000
@@ -94,34 +105,13 @@ uvicorn app:app --reload --port 8000
 ### Frontend
 ```bash
 cd frontend
-pnpm install
-
-# Create .env.local
-echo NEXT_PUBLIC_BACKEND_URL=http://localhost:8000 > .env.local
-
-pnpm dev
+npm install
+npm audit fix
+npm run dev
 ```
 
 ## Demo
 
-Run the demo script to see both flows:
-
-```bash
-cd backend
-python demo.py
-```
-
-This demonstrates:
-1. **Flow 1**: Loading a long conversation → Token threshold exceeded → Summarization triggered
-2. **Flow 2**: Ambiguous queries → Rewriting → Context augmentation → Clarifying questions
-
-## Test Data
-
-Three conversation logs in `backend/data/test_conversations/`:
-
-1. **01_long_conversation_memory_trigger.json** - Long conversation that triggers summarization
-2. **02_ambiguous_queries.json** - Examples of ambiguous user queries
-3. **03_context_building.json** - Shows how context builds over conversation
 
 ## API Endpoints
 
@@ -135,11 +125,7 @@ Three conversation logs in `backend/data/test_conversations/`:
 Edit `backend/src/config.py`:
 
 ```python
-TOKEN_THRESHOLD: int = 10000      # Trigger summarization threshold
+TOKEN_THRESHOLD: int = 1000      # Trigger summarization threshold
 TIKTOKEN_MODEL: str = "o200k_base" # Token counting model
 RECENT_MESSAGES_COUNT: int = 5    # Messages to keep after summarization
 ```
-
-## License
-
-MIT
