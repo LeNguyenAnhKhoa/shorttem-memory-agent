@@ -114,7 +114,7 @@ conda activate shortmem
 pip install -r requirements.txt
 
 # Run server
-uvicorn app:app --reload --port 8000
+uvicorn app:app --reload
 ```
 
 ### Frontend
@@ -129,7 +129,15 @@ npm run dev
 
 - Run the app and send queries from `backend/data/test_conversations` to see the UI (context size increasing, summarization being triggered, generated summary), or run `backend/demo.py` for a quick demonstration.
 - View memory logs, conversation log and chat history in the `backend/data/memory` folder.
+- Memory trigger (summarize) demo:
 
+<video src="docs/memory_trigger.mp4" controls="controls" style="max-width: 100%; height: auto;">
+  Your browser does not support the video tag.
+</video>
+
+- Ambiguous query:
+
+- Context aware:
 
 ## API Endpoints
 
