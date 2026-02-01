@@ -8,6 +8,21 @@ A chat assistant demonstrating:
 
 ![Architecture Diagram](docs/shorttem.png)
 
+The system follows a pipeline architecture to handle long conversations efficiently while maintaining context:
+
+1.  **User Query**: The `AgentService` receives the user's query and the active `session_id`.
+2.  **Memory Retrieval**: Loads the full conversation history and existing structured summary (if any) using the `MemoryService`.
+3.  **Token Optimization (Summarization)**:
+    *   The system calculates the total token count of the current session using `tiktoken`.
+    *   **Trigger**: If the count exceeds the `TOKEN_THRESHOLD` (e.g., 1000 tokens), the `MemoryService` invokes an LLM to condense older messages into a structured JSON summary (User Profile, Key Facts, Decisions, etc.).
+    *   The memory is then updated to retain only the summary and the most recent messages, effectively resetting the context window size.
+4.  **Query Understanding Pipeline**:
+    *   **Analysis**: The `QueryService` examines the user's input alongside recent history to detect ambiguities.
+    *   **Rewriting**: Ambiguous queries are rewritten to be self-contained (e.g., changing "it" to specific nouns).
+    *   **Augmentation**: The final prompt is enriched with relevant context extracted from the session summary.
+5.  **Response Generation**: The augmented context and refined query are sent to the LLM to generate the final answer.
+6.  **State Persistence**: The new interaction is appended to the session log, and the updated state is saved to the JSON storage.
+
 ## Features
 
 ### A. Session Memory via Summarization
@@ -68,12 +83,12 @@ frontend/
 └── src/app/page.tsx            # React chat interface
 ```
 
-## Requirements
+## Setup
+
+### Requirements
 
 - **Python**: 3.10 or higher
 - **Node.js**: 22.19 or higher
-
-## Setup
 
 ### Environment Configuration
 ```bash
@@ -111,6 +126,9 @@ npm run dev
 ```
 
 ## Demo
+
+- Run the app and send queries from `backend/data/test_conversations` to see the UI (context size increasing, summarization being triggered, generated summary), or run `backend/demo.py` for a quick demonstration.
+- View memory logs, conversation log and chat history in the `backend/data/memory` folder.
 
 
 ## API Endpoints
