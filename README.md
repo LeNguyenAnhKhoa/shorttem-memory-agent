@@ -129,15 +129,7 @@ npm run dev
 
 - Run the app and send queries from `backend/data/test_conversations` to see the UI (context size increasing, summarization being triggered, generated summary), or run `backend/demo.py` for a quick demonstration.
 - View memory logs, conversation log and chat history in the `backend/data/memory` folder.
-- Memory trigger (summarize) demo:
-
-<video src="docs/memory_trigger.mp4" controls="controls" style="max-width: 100%; height: auto;">
-  Your browser does not support the video tag.
-</video>
-
-- Ambiguous query:
-
-- Context aware:
+- All video demos at this [drive](https://drive.google.com/drive/folders/11iLqV6T-G8pIEa0xaUkhG9CWM6pmrHsx?usp=sharing)
 
 ## API Endpoints
 
