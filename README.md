@@ -87,8 +87,8 @@ frontend/
 
 ### Requirements
 
-- **Python**: 3.10 or higher
-- **Node.js**: 22.19 or higher
+- **Python**: 3.10 
+- **Node.js**: 22.19 
 
 ### Environment Configuration
 ```bash
@@ -127,7 +127,7 @@ npm run dev
 
 ## Demo
 
-- Run the app and send queries from `backend/data/test_conversations` to see the UI (context size increasing, summarization being triggered, generated summary), or run `backend/demo.py` for a quick demonstration.
+- Run the app at [http://localhost:3000](http://localhost:3000) and send queries from `backend/data/test_conversations` to see the UI (context size increasing, summarization being triggered, generated summary), or run `backend/demo.py` for a quick demonstration.
 - View memory logs, conversation log and chat history in the `backend/data/memory` folder.
 - All video demos at this [drive](https://drive.google.com/drive/folders/11iLqV6T-G8pIEa0xaUkhG9CWM6pmrHsx?usp=sharing)
 
